@@ -9,10 +9,11 @@ const customInput = document.querySelector(".customInput");
 let bill;
 let people_No;
 let tipsConverter;
-let newtipsConverter;
+let selectedTip;
 let result;
 let result2;
 let finalResult;
+let test;
 
 for (let i = 0; i < tips.length; i++) {
   tips[i].addEventListener("click", () => {
@@ -22,13 +23,15 @@ for (let i = 0; i < tips.length; i++) {
     // converting the values of the input boxes to Number
     bill = Number(inputEl[0].value);
     people_No = Number(inputEl[1].value);
-    console.log(people_No);
+
+    //console.log(people_No);
+
     tipsConverter = tips[i].innerText;
-    newtipsConverter = operand(tipsConverter);
+    selectedTip = operand(tipsConverter);
 
     // console.log(bill);
     // console.log(people_No);
-    // console.log(newtipsConverter);
+    // console.log(selectedTip);
 
     if (people_No < 1) {
       errorMessage.textContent = `Can't be zero`;
@@ -40,10 +43,10 @@ for (let i = 0; i < tips.length; i++) {
       }, 3000);
     } else {
       // doing the calculations and converting to D.P with the .toFixed() method
-      result = ((bill * (newtipsConverter / 100)) / people_No).toFixed(2);
-      console.log(result);
+      result = ((bill * (selectedTip / 100)) / people_No).toFixed(2);
+      // console.log(result);
 
-      result2 = (bill * newtipsConverter) / 100;
+      result2 = (bill * selectedTip) / 100;
       finalResult = ((bill + result2) / people_No).toFixed(2);
 
       data[0].innerHTML = `$${result}`;
@@ -69,7 +72,7 @@ for (let i = 0; i < tips.length; i++) {
 }
 
 reset.addEventListener("click", () => {
-  console.log("I'm being clicked");
+  // console.log("I'm being clicked");
   inputEl[0].value = "";
   inputEl[1].value = "";
 
@@ -84,8 +87,6 @@ reset.addEventListener("click", () => {
 });
 
 customBox.addEventListener("click", () => {
-  console.log("I'm being clicked");
-  // customBox.innerHTML = `<input type='text' class="customInput">`;
-  //   customBox.classList.add("customInput");
+  // console.log("I'm being clicked");
   customInput.classList.remove("hidden");
 });

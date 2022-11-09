@@ -26,14 +26,13 @@ Users should be able to:
 
 ### Screenshot
 
-![Screenshots](./design/Screenshot_4.png)
-![Screenshots](./design/Screenshot_5.png)
-![Screenshots](./design/Screenshot_6.png)
+![Screenshots](./design/Screenshot_7.png)
+![Screenshots](./design/Screenshot_8.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [solution URL here](https://your-solution-url.com)
+- Live Site URL: [live site URL here](https://tips-calcul.netlify.app/)
 
 ## My process
 
