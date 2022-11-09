@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="styles.css" type="text/css" />
+    <title>Frontend Mentor | Tip calculator app</title>
+  </head>
+  <body>
+    <main>
+      <div class="logo">
+        <img src="./images/logo.svg" alt="logo" />
+      </div>
+      <div class="inputSect">
+        <div class="bill">
+          <p>Bill</p>
+
+          <div class="inputBox">
+            <input type="text" class="bill-input input" placeholder="0" />
+            <img src="./images/icon-dollar.svg" alt="icon dollar" />
+          </div>
+        </div>
+
+        <div class="tip">
+          <p>Select Tip %</p>
+          <div class="boxSect">
+            <div class="box">5%</div>
+            <div class="box">10%</div>
+            <div class="box">15%</div>
+            <div class="box">25%</div>
+            <div class="box">50%</div>
+            <div class="boxCustom">
+              Custom
+              <input type="text" class="customInput hidden" />
+            </div>
+          </div>
+        </div>
+
+        <div class="people">
+          <div class="renderMsg">
+            <p>Number of People</p>
+            <p class="error"></p>
+          </div>
+          <div class="inputBox">
+            <input type="text" class="input" placeholder="0" />
+            <img src="./images/icon-person.svg" alt="icon person" />
+          </div>
+        </div>
+      </div>
+
+      <div class="resultSect">
+        <div class="__tipAmountSect">
+          <div class="divCont">
+            <p class="_tip_amount">Tip Amount</p>
+            <p>/ person</p>
+          </div>
+
+          <h2>$0.00</h2>
+        </div>
+
+        <div class="__tipAmountSect">
+          <div class="divCont">
+            <p class="_tip_amount">Total</p>
+            <p>/ person</p>
+          </div>
+
+          <h2>$0.00</h2>
+        </div>
+
+        <button disabled>Reset</button>
+      </div>
+    </main>
+
+    <footer>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#" target="_blank">Abdullah Ayoola</a>.
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

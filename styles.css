@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Space Mono", monospace;
+  background-color: hsl(185, 41%, 84%);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+div.logo > img {
+  position: absolute;
+  top: 10vh;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+main {
+  width: 800px;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #f3f3f3;
+  height: 400px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.inputSect {
+  grid-column-start: 1;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.inputSect > div {
+  margin-top: 10px;
+}
+
+div.tip,
+div.people {
+  margin-top: 40px;
+}
+
+:is(div) > p {
+  padding-bottom: 5px;
+  font-size: 14px;
+  color: hsl(186, 14%, 43%);
+}
+
+div.inputBox {
+  position: relative;
+}
+
+div.inputBox > img {
+  position: absolute;
+  left: 5px;
+  top: 11px;
+}
+
+.boxSect {
+  display: grid;
+  grid-template-areas:
+    "box1 box2 box3"
+    "box4 box5 box6";
+  gap: 0.5rem;
+}
+
+.boxSect > :last-child {
+  background-color: hsl(185, 41%, 84%);
+  color: hsl(186, 14%, 43%);
+}
+
+.box,
+.boxCustom {
+  background-color: hsl(183, 100%, 15%);
+  color: #f3f3f3;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.box:hover,
+.boxCustom:hover {
+  background-color: hsl(185, 41%, 84%);
+  color: #000;
+  transition: all 0.5s;
+}
+
+.box__active {
+  background-color: hsl(172, 67%, 45%);
+}
+
+input {
+  width: 350px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  text-align: right;
+  padding-inline-end: 10px;
+  padding-inline-start: 250px;
+  font-size: 20px;
+  color: hsl(183, 100%, 15%);
+  font-family: "Space Mono", monospace;
+}
+
+.bill-input:focus {
+  border: 1px solid hsl(183, 100%, 15%);
+  background-color: hsl(185, 41%, 84%);
+}
+
+.resultSect {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  background-color: hsl(183, 100%, 15%);
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+  padding: 20px;
+  position: relative;
+}
+
+.__tipAmountSect {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.__tipAmountSect > h2 {
+  font-size: 40px;
+  color: hsl(172, 67%, 45%);
+}
+
+._tip_amount {
+  color: #f3f3f3;
+  font-size: 14px;
+}
+
+.resultSect > div {
+  margin-top: 30px;
+}
+
+button {
+  padding: 10px 50px;
+  background-color: hsl(172, 67%, 45%);
+  border: none;
+  width: 90%;
+  border-radius: 5px;
+  text-transform: uppercase;
+  color: #000;
+  position: absolute;
+  bottom: 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: hsl(185, 41%, 84%);
+  transition: all 0.5s;
+}
+
+button:disabled {
+  color: #666;
+  background-color: gray;
+}
+
+.renderMsg {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.error {
+  color: red;
+  padding-right: 30px;
+}
+
+.borderColor {
+  border: 1px solid red;
+}
+
+input.customInput {
+  width: 80px;
+  padding: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+input::placeholder {
+  color: hsl(185, 41%, 84%);
+}
+
+/* footer section */
+footer {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 14px;
+}
+
+@media (max-width: 500px) and (orientation: portrait) {
+  .inputSect {
+    grid-column-start: 1;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-end: 3;
+  }
+
+  .resultSect {
+    grid-column-start: 1;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-end: 3;
+    margin-top: 5px;
+  }
+
+  main {
+    width: 350px;
+    height: auto;
+    height: 110vh;
+    margin: 150px auto;
+  }
+
+  body {
+    height: 100%;
+  }
+
+  .input {
+    width: 300px;
+    padding-inline-start: 200px;
+  }
+
+  .boxSect {
+    grid-template-areas:
+      "box1 box2"
+      "box3 box4"
+      "box5 box6";
+  }
+
+  .box,
+  .boxCustom {
+    width: 130px;
+  }
+}
+
+@media (min-width: 750px) and (max-width: 1000px) {
+  main {
+    width: 700px;
+    gap: 1rem;
+  }
+}
