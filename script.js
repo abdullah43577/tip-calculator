@@ -15,10 +15,19 @@ let result2;
 let finalResult;
 let test;
 
+function checker() {
+  for (let i = 0; i < tips.length; i++) {
+    if (tips[i].classList.contains("box__active")) {
+      tips[i].classList.remove("box__active");
+    }
+  }
+}
+
 for (let i = 0; i < tips.length; i++) {
   tips[i].addEventListener("click", () => {
     // console.log(tips[i].innerText);
-    tips[i].classList.toggle("box__active");
+    checker();
+    tips[i].classList.add("box__active");
 
     // converting the values of the input boxes to Number
     bill = Number(inputEl[0].value);
@@ -60,11 +69,10 @@ for (let i = 0; i < tips.length; i++) {
       const Data = value.split("");
 
       // popping off the last element of the array since it'd always be the percentage
-      const newData = Data.pop();
+      Data.pop();
 
       // concatenating the array back into string
       const updatedData = Data.join("");
-
       // returning the converted version of the updatedData (Number)
       return Number(updatedData);
     }
