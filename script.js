@@ -10,11 +10,24 @@ const btn = document.querySelector(".btn");
 let bill;
 let people_No;
 let tipsConverter;
-let selectedTip;
+let selectedTipCustom;
 let result;
 let result2;
 let finalResult;
 let test;
+
+function operand(value) {
+  // splitting the default data that comes into this function into an array and assigning to Data
+  const Data = value.split("");
+
+  // popping off the last element of the array since it'd always be the percentage
+  Data.pop();
+
+  // concatenating the array back into string
+  const updatedData = Data.join("");
+  // returning the converted version of the updatedData (Number)
+  return Number(updatedData);
+}
 
 tips.forEach((percentageSelected) => {
   percentageSelected.addEventListener("click", () => {
@@ -57,20 +70,51 @@ tips.forEach((percentageSelected) => {
     }
 
     reset.disabled = false;
-
-    function operand(value) {
-      // splitting the default data that comes into this function into an array and assigning to Data
-      const Data = value.split("");
-
-      // popping off the last element of the array since it'd always be the percentage
-      Data.pop();
-
-      // concatenating the array back into string
-      const updatedData = Data.join("");
-      // returning the converted version of the updatedData (Number)
-      return Number(updatedData);
-    }
   });
+});
+
+customBox.addEventListener("click", () => {
+  // console.log("I'm being clicked");
+  customInput.classList.remove("hidden");
+  btn.classList.remove("hidden");
+});
+
+btn.addEventListener("click", () => {
+  if (customInput.value) {
+    bill = Number(inputEl[0].value);
+    people_No = Number(inputEl[1].value);
+
+    tipsConverter = customInput.value;
+    selectedTipCustom = operand(tipsConverter);
+
+    if (people_No < 1) {
+      errorMessage.textContent = `Can't be zero`;
+      inputEl[1].classList.add("borderColor");
+
+      setTimeout(() => {
+        errorMessage.textContent = ``;
+        inputEl[1].classList.remove("borderColor");
+      }, 3000);
+    } else {
+      // doing the calculations and converting to D.P with the .toFixed() method
+      result = ((bill * (selectedTipCustom / 100)) / people_No).toFixed(2);
+      // console.log(result);
+
+      result2 = (bill * selectedTipCustom) / 100;
+      finalResult = ((bill + result2) / people_No).toFixed(2);
+
+      data[0].innerHTML = `$${result}`;
+      data[1].innerHTML = `$${finalResult}`;
+    }
+
+    reset.disabled = false;
+  } else {
+    customInput.classList.add("borderColor");
+
+    setTimeout(() => {
+      customInput.classList.remove("borderColor");
+    }, 3000);
+  }
 });
 
 reset.addEventListener("click", () => {
@@ -92,47 +136,4 @@ reset.addEventListener("click", () => {
   btn.classList.add("hidden");
 
   reset.disabled = true;
-});
-
-customBox.addEventListener("click", () => {
-  // console.log("I'm being clicked");
-  customInput.classList.remove("hidden");
-  btn.classList.remove("hidden");
-});
-
-btn.addEventListener("click", () => {
-  if (customInput.value) {
-    bill = Number(inputEl[0].value);
-    people_No = Number(inputEl[1].value);
-
-    if (people_No < 1) {
-      errorMessage.textContent = `Can't be zero`;
-      inputEl[1].classList.add("borderColor");
-
-      setTimeout(() => {
-        errorMessage.textContent = ``;
-        inputEl[1].classList.remove("borderColor");
-      }, 3000);
-    } else {
-      // doing the calculations and converting to D.P with the .toFixed() method
-      result = ((bill * (Number(customInput.value) / 100)) / people_No).toFixed(
-        2
-      );
-      // console.log(result);
-
-      result2 = (bill * Number(customInput.value)) / 100;
-      finalResult = ((bill + result2) / people_No).toFixed(2);
-
-      data[0].innerHTML = `$${result}`;
-      data[1].innerHTML = `$${finalResult}`;
-    }
-
-    reset.disabled = false;
-  } else {
-    customInput.classList.add("borderColor");
-
-    setTimeout(() => {
-      customInput.classList.remove("borderColor");
-    }, 3000);
-  }
 });
