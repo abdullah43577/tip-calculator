@@ -29,7 +29,7 @@ main {
   border-radius: 20px;
   padding: 20px;
   background-color: #f3f3f3;
-  height: 400px;
+  /* height: 400px; */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
@@ -196,6 +196,7 @@ button:disabled {
 input.customInput {
   width: 80px;
   padding: 0;
+  padding-inline-end: 10px;
 }
 
 .hidden {
@@ -282,4 +283,12 @@ footer {
   button {
     right: 15px;
   }
+}
+
+button.btn {
+  position: relative;
+  padding: 10px;
+  text-align: center;
+  top: 8px;
+  left: 2px;
 }
