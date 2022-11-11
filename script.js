@@ -125,9 +125,9 @@ reset.addEventListener("click", () => {
   data[0].innerHTML = `$0.00`;
   data[1].innerHTML = `$0.00`;
 
-  for (let i = 0; i < tips.length; i++) {
-    tips[i].classList.remove("box__active");
-  }
+  tips.forEach((activeBox) => {
+    activeBox.classList.remove("box__active");
+  });
 
   if (customInput.value) {
     customInput.value = "";
